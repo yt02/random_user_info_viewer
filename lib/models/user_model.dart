@@ -10,6 +10,7 @@ class UserModel {
   final String uuid;
   final String birthday;
   final int age;
+  final String nationality;
 
   UserModel({
     required this.name,
@@ -22,6 +23,7 @@ class UserModel {
     required this.uuid,
     required this.birthday,
     required this.age,
+    required this.nationality,
   });
 
   factory UserModel.fromJson(Map<String, dynamic> json) {
@@ -40,6 +42,7 @@ class UserModel {
       uuid: user['login']['uuid'],
       birthday: '${date.day}/${date.month}/${date.year}',
       age: dob['age'],
+      nationality: user['nat'],
     );
   }
 } 

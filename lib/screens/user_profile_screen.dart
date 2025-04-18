@@ -16,6 +16,68 @@ class _UserProfileScreenState extends State<UserProfileScreen> {
   bool _isLoading = true;
   String? _error;
 
+  String _getFullCountryName(String countryCode) {
+    final Map<String, String> countryCodes = {
+      'US': 'United States',
+      'GB': 'United Kingdom',
+      'IN': 'India',
+      'AU': 'Australia',
+      'CA': 'Canada',
+      'DE': 'Germany',
+      'FR': 'France',
+      'IT': 'Italy',
+      'JP': 'Japan',
+      'BR': 'Brazil',
+      'ES': 'Spain',
+      'MX': 'Mexico',
+      'NZ': 'New Zealand',
+      'CH': 'Switzerland',
+      'IE': 'Ireland',
+      'DK': 'Denmark',
+      'NO': 'Norway',
+      'NL': 'Netherlands',
+      'SE': 'Sweden',
+      'FI': 'Finland',
+      'IR': 'Iran',
+      'UA': 'Ukraine',
+      'TR': 'Turkey',
+      'RU': 'Russia',
+      'CN': 'China',
+      'KR': 'South Korea',
+      'SG': 'Singapore',
+      'MY': 'Malaysia',
+      'ID': 'Indonesia',
+      'TH': 'Thailand',
+      'VN': 'Vietnam',
+      'PH': 'Philippines',
+      'EG': 'Egypt',
+      'ZA': 'South Africa',
+      'AR': 'Argentina',
+      'CL': 'Chile',
+      'CO': 'Colombia',
+      'PE': 'Peru',
+      'VE': 'Venezuela',
+      'PT': 'Portugal',
+      'GR': 'Greece',
+      'PL': 'Poland',
+      'CZ': 'Czech Republic',
+      'HU': 'Hungary',
+      'AT': 'Austria',
+      'BE': 'Belgium',
+      'RO': 'Romania',
+      'BG': 'Bulgaria',
+      'HR': 'Croatia',
+      'RS': 'Serbia',
+      'SK': 'Slovakia',
+      'SI': 'Slovenia',
+      'EE': 'Estonia',
+      'LV': 'Latvia',
+      'LT': 'Lithuania',
+      'IS': 'Iceland',
+    };
+    return countryCodes[countryCode.toUpperCase()] ?? countryCode;
+  }
+
   @override
   void initState() {
     super.initState();
@@ -131,6 +193,11 @@ class _UserProfileScreenState extends State<UserProfileScreen> {
                               icon: Icons.phone,
                               title: 'Phone',
                               content: _user!.phone,
+                            ),
+                            _buildInfoContainer(
+                              icon: Icons.flag,
+                              title: 'Nationality',
+                              content: _getFullCountryName(_user!.nationality),
                             ),
                             const SizedBox(height: 20),
                             ElevatedButton.icon(

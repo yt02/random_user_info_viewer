@@ -37,7 +37,7 @@ class _SplashScreenWrapperState extends State<SplashScreenWrapper> {
   }
 
   Future<void> _navigateToHome() async {
-    await Future.delayed(const Duration(seconds: 3));
+    await Future.delayed(const Duration(seconds: 2));
     if (mounted) {
       Navigator.of(context).pushReplacement(
         MaterialPageRoute(builder: (context) => const UserProfileScreen()),
